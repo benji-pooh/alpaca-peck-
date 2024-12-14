@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Patrick Hand SC';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 800;
   src: url(https://fonts.gstatic.com/s/patrickhandsc/v15/0nkwC9f7MfsBiWcLtY65AWDK873ljiK-.ttf) format('truetype');
 }
 canvas {
@@ -85,7 +85,7 @@ body {
   width: 90%;
   max-width: 800px;
   max-height: 80vh;
-  border: solid 10px #330023;
+  border: solid 12px #330023;
   background: #330023;
   text-align: center;
   position: relative;
@@ -142,7 +142,7 @@ kbd {
   color: #555;
   width: 2.5em;
   height: 1.2em;
-  text-transform: none;
+  text-transform: lowercase;
   border-bottom-width: 0.3em;
   border-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
