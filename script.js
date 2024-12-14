@@ -1,38 +1,39 @@
 (function () {
-
+//define the colors and size
   const green = '#62D2A2';
   const pink = '#DD5B82';
-  const size = 45;
+  const size = 69;
   const speed = 0.23;
 
   const shape = [
-  [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
   [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
   [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
   [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-  [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]];
+  [0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0]];
 
-
+// make the shape using an array where 1 represents a filled spot and a 0 represents a empty spot(you will see that this is the shape of the alpaca)
   const heartShape = [
   [0, 1, 1, 0, 1, 1, 0],
   [1, 1, 1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 1, 1, 0],
   [0, 1, 1, 1, 1, 1, 0],
   [0, 0, 1, 1, 1, 0, 0],
   [0, 0, 0, 1, 0, 0, 0]];
 
 
   var haveKissed = false;
-  var sceneWidth = 800;
-  var sceneHeight = 800;
+  var sceneWidth = 1000;
+  var sceneHeight = 1000;
 
 
 
@@ -79,9 +80,9 @@
   var ground = Bodies.rectangle(sceneWidth / 2, sceneHeight + sceneHeight / 2, Math.max(sceneWidth * 4, 2000), sceneHeight, {
     isStatic: true,
     render: {
-      opacity: 1,
-      fillStyle: '#D7FBE8',
-      strokeStyle: '#D7FBE8' } });
+      opacity: 0.95,
+      fillStyle: '#e0e0e0',
+      strokeStyle: '#1d1e1f' } });
 
 
 
@@ -159,9 +160,9 @@
 
   /*////////////////////////////////////////*/
 
-
+//define the X and Y gravity(higher number means higher force)
   world.gravity.y = 0.25;
-
+  world.gravity.x = 0.05
   var color = green;
 
   var width = shape[0].length * size;
@@ -180,14 +181,14 @@
     let s = size * (j < 4 ? 0.8 : 1);
     let c =
     i === 2 && j === 9 ? '#000' : // Eyeball 
-    j % 2 !== (i % 2 ? 0 : 1) ? color : '#52C292';
+    j % 2 !== (i % 2 ? 0 : 1) ? color : '#60b590';
 
 
     return Bodies.rectangle(x, y, s, s, {
       render: {
         fillStyle: c,
         strokeStyle: color,
-        lineWidth: s * 0.3 } });
+        lineWidth: s * 0.35 } });
 
 
   });
@@ -219,7 +220,7 @@
 
 
     return Bodies.rectangle(x, y, s, s, {
-      //mass: 0.6,
+      //mass: 0.85,
       render: {
         fillStyle: c,
         strokeStyle: color,
